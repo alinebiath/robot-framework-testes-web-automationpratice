@@ -1,0 +1,1428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181126 12:02:53.379" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="C:\exemplos_estudos\Robot_tests\curso_basico\test_suite_pratice\tests\test_suite_01_bdd.robot" id="s1" name="Test Suite 01 Bdd">
+<test id="s1-t1" name="Scenario 01: Search for existing products">
+<kw type="setup" name="Open navigator" library="keywords_bdd">
+<kw name="Open Browser" library="selenium">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181126 12:02:55.352" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181126 12:03:03.473" starttime="20181126 12:02:55.352"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:03.473" starttime="20181126 12:02:55.351"></status>
+</kw>
+<kw name="Given I am on the home page" library="keywords_bdd">
+<kw name="Go To" library="selenium">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:03.476" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" endtime="20181126 12:03:07.954" starttime="20181126 12:03:03.476"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:03:07.959" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" endtime="20181126 12:03:07.959" starttime="20181126 12:03:07.955"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:07.959" starttime="20181126 12:03:03.475"></status>
+</kw>
+<kw name="When I search for the product &quot;Blouse&quot;" library="keywords_bdd">
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:search_query_top</arg>
+<arg>${product}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:07.961" level="INFO">Typing text 'Blouse' into text field 'id:search_query_top'.</msg>
+<status status="PASS" endtime="20181126 12:03:08.009" starttime="20181126 12:03:07.960"></status>
+</kw>
+<kw name="Click Button" library="selenium">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>name:submit_search</arg>
+</arguments>
+<msg timestamp="20181126 12:03:08.010" level="INFO">Clicking button 'name:submit_search'.</msg>
+<status status="PASS" endtime="20181126 12:03:09.363" starttime="20181126 12:03:08.009"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:09.363" starttime="20181126 12:03:07.960"></status>
+</kw>
+<kw name="I should see the searched product &quot;Blouse&quot;" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css:#center_column &gt; h1</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:03:09.389" starttime="20181126 12:03:09.365"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Search - My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:03:09.405" level="INFO">Page title is 'Search - My Store'.</msg>
+<status status="PASS" endtime="20181126 12:03:09.405" starttime="20181126 12:03:09.390"></status>
+</kw>
+<kw name="Get Text" library="selenium">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="center_column"]/h1/span[1]</arg>
+</arguments>
+<assign>
+<var>${texto}</var>
+</assign>
+<msg timestamp="20181126 12:03:09.440" level="INFO">${texto} = "BLOUSE"</msg>
+<status status="PASS" endtime="20181126 12:03:09.440" starttime="20181126 12:03:09.405"></status>
+</kw>
+<kw name="Strip String" library="string">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${texto}</arg>
+<arg>mode=both</arg>
+<arg>characters="</arg>
+</arguments>
+<assign>
+<var>${textoSemEspaco}</var>
+</assign>
+<msg timestamp="20181126 12:03:09.441" level="INFO">${textoSemEspaco} = BLOUSE</msg>
+<status status="PASS" endtime="20181126 12:03:09.441" starttime="20181126 12:03:09.440"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${textoSemEspaco}</arg>
+<arg>${product}</arg>
+<arg>ignore_case=True</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:03:09.441" starttime="20181126 12:03:09.441"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:09.441" starttime="20181126 12:03:09.364"></status>
+</kw>
+<kw type="teardown" name="Close navigator" library="keywords_bdd">
+<kw name="Close Browser" library="selenium">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181126 12:03:11.003" starttime="20181126 12:03:09.442"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:11.003" starttime="20181126 12:03:09.442"></status>
+</kw>
+<tags>
+<tag>existproduct</tag>
+</tags>
+<status status="PASS" endtime="20181126 12:03:11.003" critical="yes" starttime="20181126 12:02:55.350"></status>
+</test>
+<test id="s1-t2" name="Scenario 02: Search for non existing products">
+<kw type="setup" name="Open navigator" library="keywords_bdd">
+<kw name="Open Browser" library="selenium">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:11.008" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181126 12:03:19.696" starttime="20181126 12:03:11.007"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:19.696" starttime="20181126 12:03:11.007"></status>
+</kw>
+<kw name="Given I am on the home page" library="keywords_bdd">
+<kw name="Go To" library="selenium">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:19.702" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" endtime="20181126 12:03:24.351" starttime="20181126 12:03:19.701"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:03:24.368" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" endtime="20181126 12:03:24.368" starttime="20181126 12:03:24.351"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:24.368" starttime="20181126 12:03:19.700"></status>
+</kw>
+<kw name="When I search for the product &quot;non existing product&quot;" library="keywords_bdd">
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:search_query_top</arg>
+<arg>${product}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:24.369" level="INFO">Typing text 'non existing product' into text field 'id:search_query_top'.</msg>
+<status status="PASS" endtime="20181126 12:03:24.431" starttime="20181126 12:03:24.369"></status>
+</kw>
+<kw name="Click Button" library="selenium">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>name:submit_search</arg>
+</arguments>
+<msg timestamp="20181126 12:03:24.431" level="INFO">Clicking button 'name:submit_search'.</msg>
+<status status="PASS" endtime="20181126 12:03:25.830" starttime="20181126 12:03:24.431"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:25.831" starttime="20181126 12:03:24.369"></status>
+</kw>
+<kw name="Then I should see the message &quot;No results were found for your search &quot;non existing product&quot;&quot;" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css:#center_column &gt; h1</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:03:25.915" starttime="20181126 12:03:25.845"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>xpath://*[@id="center_column"]/p[@class="alert alert-warning"]</arg>
+<arg>${no_product}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:25.980" level="INFO">Element 'xpath://*[@id="center_column"]/p[@class="alert alert-warning"]' contains text 'non existing product'.</msg>
+<status status="PASS" endtime="20181126 12:03:25.980" starttime="20181126 12:03:25.915"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:25.981" starttime="20181126 12:03:25.844"></status>
+</kw>
+<kw type="teardown" name="Close navigator" library="keywords_bdd">
+<kw name="Close Browser" library="selenium">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181126 12:03:27.540" starttime="20181126 12:03:25.985"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:27.540" starttime="20181126 12:03:25.985"></status>
+</kw>
+<tags>
+<tag>noproduct</tag>
+</tags>
+<status status="PASS" endtime="20181126 12:03:27.541" critical="yes" starttime="20181126 12:03:11.006"></status>
+</test>
+<test id="s1-t3" name="Scenario 03: List products">
+<kw type="setup" name="Open navigator" library="keywords_bdd">
+<kw name="Open Browser" library="selenium">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:27.545" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181126 12:03:35.697" starttime="20181126 12:03:27.544"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:35.697" starttime="20181126 12:03:27.544"></status>
+</kw>
+<kw name="Given I am on the home page" library="keywords_bdd">
+<kw name="Go To" library="selenium">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:35.699" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" endtime="20181126 12:03:40.172" starttime="20181126 12:03:35.699"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:03:40.181" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" endtime="20181126 12:03:40.181" starttime="20181126 12:03:40.173"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:40.181" starttime="20181126 12:03:35.698"></status>
+</kw>
+<kw name="When I select the &quot;WOMEN&quot; category in the main menu categories" library="keywords_bdd">
+<kw name="Mouse Over" library="selenium">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>css:#block_top_menu &gt; ul &gt; li:nth-child(1) &gt; a</arg>
+</arguments>
+<msg timestamp="20181126 12:03:40.184" level="INFO">Simulating Mouse Over on element 'css:#block_top_menu &gt; ul &gt; li:nth-child(1) &gt; a'.</msg>
+<status status="PASS" endtime="20181126 12:03:40.490" starttime="20181126 12:03:40.183"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:40.491" starttime="20181126 12:03:40.183"></status>
+</kw>
+<kw name="And I select the sub-category &quot;Summer Dresses&quot;" library="keywords_bdd">
+<kw name="Wait Until Element Is Visible" library="selenium">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath://*[@id="block_top_menu"]/ul/li[1]/ul</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:03:42.210" starttime="20181126 12:03:40.492"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>link:${product}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:42.211" level="INFO">Clicking element 'link:Summer Dresses'.</msg>
+<status status="PASS" endtime="20181126 12:03:45.399" starttime="20181126 12:03:42.210"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:45.400" starttime="20181126 12:03:40.492"></status>
+</kw>
+<kw name="Then I should see the page with the selected product &quot;Summer Dresses&quot;" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>id:selectProductSort</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:03:45.414" starttime="20181126 12:03:45.402"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>${product} - My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:03:45.420" level="INFO">Page title is 'Summer Dresses - My Store'.</msg>
+<status status="PASS" endtime="20181126 12:03:45.420" starttime="20181126 12:03:45.414"></status>
+</kw>
+<kw name="Get Text" library="selenium">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="center_column"]/h1/span[1]</arg>
+</arguments>
+<assign>
+<var>${texto}</var>
+</assign>
+<msg timestamp="20181126 12:03:45.440" level="INFO">${texto} = SUMMER DRESSES </msg>
+<status status="PASS" endtime="20181126 12:03:45.440" starttime="20181126 12:03:45.421"></status>
+</kw>
+<kw name="Strip String" library="string">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${texto}</arg>
+<arg>mode=both</arg>
+</arguments>
+<assign>
+<var>${textoSemEspaco}</var>
+</assign>
+<msg timestamp="20181126 12:03:45.440" level="INFO">${textoSemEspaco} = SUMMER DRESSES</msg>
+<status status="PASS" endtime="20181126 12:03:45.440" starttime="20181126 12:03:45.440"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${textoSemEspaco}</arg>
+<arg>${product}</arg>
+<arg>ignore_case=true</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:03:45.441" starttime="20181126 12:03:45.441"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:45.441" starttime="20181126 12:03:45.401"></status>
+</kw>
+<kw type="teardown" name="Close navigator" library="keywords_bdd">
+<kw name="Close Browser" library="selenium">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181126 12:03:46.887" starttime="20181126 12:03:45.442"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:46.887" starttime="20181126 12:03:45.442"></status>
+</kw>
+<tags>
+<tag>listproduct</tag>
+</tags>
+<status status="PASS" endtime="20181126 12:03:46.887" critical="yes" starttime="20181126 12:03:27.543"></status>
+</test>
+<test id="s1-t4" name="Scenario 04: Add products to shopping cart">
+<kw type="setup" name="Open navigator" library="keywords_bdd">
+<kw name="Open Browser" library="selenium">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:46.892" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181126 12:03:55.520" starttime="20181126 12:03:46.891"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:03:55.521" starttime="20181126 12:03:46.891"></status>
+</kw>
+<kw name="Given I am on the home page" library="keywords_bdd">
+<kw name="Go To" library="selenium">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20181126 12:03:55.524" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" endtime="20181126 12:04:00.282" starttime="20181126 12:03:55.524"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:04:00.299" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" endtime="20181126 12:04:00.299" starttime="20181126 12:04:00.282"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:00.299" starttime="20181126 12:03:55.523"></status>
+</kw>
+<kw name="And I search for the product &quot;t-shirt&quot;" library="keywords_bdd">
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:search_query_top</arg>
+<arg>${product}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:00.301" level="INFO">Typing text 't-shirt' into text field 'id:search_query_top'.</msg>
+<status status="PASS" endtime="20181126 12:04:00.338" starttime="20181126 12:04:00.301"></status>
+</kw>
+<kw name="Click Button" library="selenium">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>name:submit_search</arg>
+</arguments>
+<msg timestamp="20181126 12:04:00.339" level="INFO">Clicking button 'name:submit_search'.</msg>
+<status status="PASS" endtime="20181126 12:04:01.690" starttime="20181126 12:04:00.339"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:01.690" starttime="20181126 12:04:00.300"></status>
+</kw>
+<kw name="When I should see the searched product &quot;t-shirt&quot;" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css:#center_column &gt; h1</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:01.706" starttime="20181126 12:04:01.692"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Search - My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:04:01.715" level="INFO">Page title is 'Search - My Store'.</msg>
+<status status="PASS" endtime="20181126 12:04:01.715" starttime="20181126 12:04:01.707"></status>
+</kw>
+<kw name="Get Text" library="selenium">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="center_column"]/h1/span[1]</arg>
+</arguments>
+<assign>
+<var>${texto}</var>
+</assign>
+<msg timestamp="20181126 12:04:01.749" level="INFO">${texto} = "T-SHIRT"</msg>
+<status status="PASS" endtime="20181126 12:04:01.749" starttime="20181126 12:04:01.716"></status>
+</kw>
+<kw name="Strip String" library="string">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${texto}</arg>
+<arg>mode=both</arg>
+<arg>characters="</arg>
+</arguments>
+<assign>
+<var>${textoSemEspaco}</var>
+</assign>
+<msg timestamp="20181126 12:04:01.749" level="INFO">${textoSemEspaco} = T-SHIRT</msg>
+<status status="PASS" endtime="20181126 12:04:01.749" starttime="20181126 12:04:01.749"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${textoSemEspaco}</arg>
+<arg>${product}</arg>
+<arg>ignore_case=True</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:01.750" starttime="20181126 12:04:01.750"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:01.750" starttime="20181126 12:04:01.691"></status>
+</kw>
+<kw name="And I add to shopping cart the listed product" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css:#center_column &gt; h1</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:01.758" starttime="20181126 12:04:01.751"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css:#center_column &gt; ul &gt; li &gt; div &gt; div.right-block &gt; h5 &gt; a</arg>
+<arg>Faded Short Sleeve T-shirts</arg>
+</arguments>
+<msg timestamp="20181126 12:04:01.773" level="INFO">Element 'css:#center_column &gt; ul &gt; li &gt; div &gt; div.right-block &gt; h5 &gt; a' contains text 'Faded Short Sleeve T-shirts'.</msg>
+<status status="PASS" endtime="20181126 12:04:01.774" starttime="20181126 12:04:01.758"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+</arguments>
+<msg timestamp="20181126 12:04:01.781" level="INFO">Current page contains element 'xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]'.</msg>
+<status status="PASS" endtime="20181126 12:04:01.781" starttime="20181126 12:04:01.774"></status>
+</kw>
+<kw name="Mouse Over" library="selenium">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div</arg>
+</arguments>
+<msg timestamp="20181126 12:04:01.782" level="INFO">Simulating Mouse Over on element 'xpath=//*[@id="center_column"]/ul/li/div'.</msg>
+<status status="PASS" endtime="20181126 12:04:02.102" starttime="20181126 12:04:01.781"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="selenium">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:02.135" starttime="20181126 12:04:02.102"></status>
+</kw>
+<kw name="Get Horizontal Position" library="selenium">
+<doc>Returns horizontal position of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+</arguments>
+<assign>
+<var>${btn_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:02.147" level="INFO">${btn_position_y} = 419.0</msg>
+<status status="PASS" endtime="20181126 12:04:02.147" starttime="20181126 12:04:02.135"></status>
+</kw>
+<kw name="Execute Javascript" library="selenium">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,${btn_position_y})</arg>
+</arguments>
+<msg timestamp="20181126 12:04:02.149" level="INFO">Executing JavaScript:
+window.scrollTo(0,419.0)
+Without any arguments.</msg>
+<status status="PASS" endtime="20181126 12:04:02.154" starttime="20181126 12:04:02.147"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+</arguments>
+<msg timestamp="20181126 12:04:02.154" level="INFO">Clicking element 'xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]'.</msg>
+<status status="PASS" endtime="20181126 12:04:02.400" starttime="20181126 12:04:02.154"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:02.400" starttime="20181126 12:04:01.751"></status>
+</kw>
+<kw name="And I proceed to checkout" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=#layer_cart &gt; div.clearfix</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:02.407" starttime="20181126 12:04:02.402"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="selenium">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:03.162" starttime="20181126 12:04:02.407"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a</arg>
+</arguments>
+<msg timestamp="20181126 12:04:03.163" level="INFO">Clicking element 'xpath=//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a'.</msg>
+<status status="PASS" endtime="20181126 12:04:04.972" starttime="20181126 12:04:03.162"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:04.972" starttime="20181126 12:04:02.402"></status>
+</kw>
+<kw name="Then I should see the shopping cart page with the products and its data and values" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:04.986" starttime="20181126 12:04:04.977"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css:td.cart_description &gt; p:nth-child(1) &gt; a:nth-child(1)</arg>
+<arg>Faded Short Sleeve T-shirts</arg>
+</arguments>
+<msg timestamp="20181126 12:04:05.006" level="INFO">Element 'css:td.cart_description &gt; p:nth-child(1) &gt; a:nth-child(1)' contains text 'Faded Short Sleeve T-shirts'.</msg>
+<status status="PASS" endtime="20181126 12:04:05.006" starttime="20181126 12:04:04.986"></status>
+</kw>
+<kw name="Get Horizontal Position" library="selenium">
+<doc>Returns horizontal position of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/p[2]/a[1]</arg>
+</arguments>
+<assign>
+<var>${total_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:05.016" level="INFO">${total_position_y} = 1004.0</msg>
+<status status="PASS" endtime="20181126 12:04:05.016" starttime="20181126 12:04:05.007"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${total_position_y} - 550</arg>
+</arguments>
+<assign>
+<var>${total_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:05.018" level="INFO">${total_position_y} = 454.0</msg>
+<status status="PASS" endtime="20181126 12:04:05.018" starttime="20181126 12:04:05.017"></status>
+</kw>
+<kw name="Execute Javascript" library="selenium">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,${total_position_y})</arg>
+</arguments>
+<msg timestamp="20181126 12:04:05.020" level="INFO">Executing JavaScript:
+window.scrollTo(0,454.0)
+Without any arguments.</msg>
+<status status="PASS" endtime="20181126 12:04:05.026" starttime="20181126 12:04:05.018"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:05.026" starttime="20181126 12:04:04.976"></status>
+</kw>
+<kw type="teardown" name="Close navigator" library="keywords_bdd">
+<kw name="Close Browser" library="selenium">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181126 12:04:06.449" starttime="20181126 12:04:05.027"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:06.449" starttime="20181126 12:04:05.027"></status>
+</kw>
+<tags>
+<tag>addproduct</tag>
+</tags>
+<status status="PASS" endtime="20181126 12:04:06.450" critical="yes" starttime="20181126 12:03:46.890"></status>
+</test>
+<test id="s1-t5" name="Scenario 05: Remove products">
+<kw type="setup" name="I have at least one product in my cart" library="keywords_bdd">
+<kw name="Open navigator" library="keywords_bdd">
+<kw name="Open Browser" library="selenium">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:06.455" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181126 12:04:14.602" starttime="20181126 12:04:06.454"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:14.602" starttime="20181126 12:04:06.454"></status>
+</kw>
+<kw name="I am on the home page" library="keywords_bdd">
+<kw name="Go To" library="selenium">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:14.604" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" endtime="20181126 12:04:19.046" starttime="20181126 12:04:14.603"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:04:19.052" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" endtime="20181126 12:04:19.053" starttime="20181126 12:04:19.047"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:19.053" starttime="20181126 12:04:14.603"></status>
+</kw>
+<kw name="I search for the product &quot;t-shirt&quot;" library="keywords_bdd">
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:search_query_top</arg>
+<arg>${product}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:19.055" level="INFO">Typing text 't-shirt' into text field 'id:search_query_top'.</msg>
+<status status="PASS" endtime="20181126 12:04:19.095" starttime="20181126 12:04:19.054"></status>
+</kw>
+<kw name="Click Button" library="selenium">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>name:submit_search</arg>
+</arguments>
+<msg timestamp="20181126 12:04:19.095" level="INFO">Clicking button 'name:submit_search'.</msg>
+<status status="PASS" endtime="20181126 12:04:20.619" starttime="20181126 12:04:19.095"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:20.620" starttime="20181126 12:04:19.053"></status>
+</kw>
+<kw name="I should see the searched product &quot;t-shirt&quot;" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css:#center_column &gt; h1</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:20.636" starttime="20181126 12:04:20.620"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Search - My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:04:20.641" level="INFO">Page title is 'Search - My Store'.</msg>
+<status status="PASS" endtime="20181126 12:04:20.641" starttime="20181126 12:04:20.636"></status>
+</kw>
+<kw name="Get Text" library="selenium">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="center_column"]/h1/span[1]</arg>
+</arguments>
+<assign>
+<var>${texto}</var>
+</assign>
+<msg timestamp="20181126 12:04:20.663" level="INFO">${texto} = "T-SHIRT"</msg>
+<status status="PASS" endtime="20181126 12:04:20.663" starttime="20181126 12:04:20.641"></status>
+</kw>
+<kw name="Strip String" library="string">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${texto}</arg>
+<arg>mode=both</arg>
+<arg>characters="</arg>
+</arguments>
+<assign>
+<var>${textoSemEspaco}</var>
+</assign>
+<msg timestamp="20181126 12:04:20.664" level="INFO">${textoSemEspaco} = T-SHIRT</msg>
+<status status="PASS" endtime="20181126 12:04:20.664" starttime="20181126 12:04:20.664"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${textoSemEspaco}</arg>
+<arg>${product}</arg>
+<arg>ignore_case=True</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:20.665" starttime="20181126 12:04:20.664"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:20.666" starttime="20181126 12:04:20.620"></status>
+</kw>
+<kw name="I add to shopping cart the listed product" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css:#center_column &gt; h1</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:20.673" starttime="20181126 12:04:20.666"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css:#center_column &gt; ul &gt; li &gt; div &gt; div.right-block &gt; h5 &gt; a</arg>
+<arg>Faded Short Sleeve T-shirts</arg>
+</arguments>
+<msg timestamp="20181126 12:04:20.688" level="INFO">Element 'css:#center_column &gt; ul &gt; li &gt; div &gt; div.right-block &gt; h5 &gt; a' contains text 'Faded Short Sleeve T-shirts'.</msg>
+<status status="PASS" endtime="20181126 12:04:20.688" starttime="20181126 12:04:20.673"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+</arguments>
+<msg timestamp="20181126 12:04:20.694" level="INFO">Current page contains element 'xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]'.</msg>
+<status status="PASS" endtime="20181126 12:04:20.694" starttime="20181126 12:04:20.688"></status>
+</kw>
+<kw name="Mouse Over" library="selenium">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div</arg>
+</arguments>
+<msg timestamp="20181126 12:04:20.695" level="INFO">Simulating Mouse Over on element 'xpath=//*[@id="center_column"]/ul/li/div'.</msg>
+<status status="PASS" endtime="20181126 12:04:20.994" starttime="20181126 12:04:20.694"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="selenium">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:21.037" starttime="20181126 12:04:20.994"></status>
+</kw>
+<kw name="Get Horizontal Position" library="selenium">
+<doc>Returns horizontal position of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+</arguments>
+<assign>
+<var>${btn_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:21.047" level="INFO">${btn_position_y} = 419.0</msg>
+<status status="PASS" endtime="20181126 12:04:21.047" starttime="20181126 12:04:21.037"></status>
+</kw>
+<kw name="Execute Javascript" library="selenium">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,${btn_position_y})</arg>
+</arguments>
+<msg timestamp="20181126 12:04:21.049" level="INFO">Executing JavaScript:
+window.scrollTo(0,419.0)
+Without any arguments.</msg>
+<status status="PASS" endtime="20181126 12:04:21.054" starttime="20181126 12:04:21.048"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]</arg>
+</arguments>
+<msg timestamp="20181126 12:04:21.054" level="INFO">Clicking element 'xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]'.</msg>
+<status status="PASS" endtime="20181126 12:04:21.304" starttime="20181126 12:04:21.054"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:21.304" starttime="20181126 12:04:20.666"></status>
+</kw>
+<kw name="I proceed to checkout" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=#layer_cart &gt; div.clearfix</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:21.312" starttime="20181126 12:04:21.305"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="selenium">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:21.824" starttime="20181126 12:04:21.312"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a</arg>
+</arguments>
+<msg timestamp="20181126 12:04:21.825" level="INFO">Clicking element 'xpath=//*[@id="layer_cart"]/div[1]/div[2]/div[4]/a'.</msg>
+<status status="PASS" endtime="20181126 12:04:23.352" starttime="20181126 12:04:21.825"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:23.352" starttime="20181126 12:04:21.304"></status>
+</kw>
+<kw name="I should see the shopping cart page with the products and its data and values" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:23.370" starttime="20181126 12:04:23.354"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css:td.cart_description &gt; p:nth-child(1) &gt; a:nth-child(1)</arg>
+<arg>Faded Short Sleeve T-shirts</arg>
+</arguments>
+<msg timestamp="20181126 12:04:23.391" level="INFO">Element 'css:td.cart_description &gt; p:nth-child(1) &gt; a:nth-child(1)' contains text 'Faded Short Sleeve T-shirts'.</msg>
+<status status="PASS" endtime="20181126 12:04:23.391" starttime="20181126 12:04:23.371"></status>
+</kw>
+<kw name="Get Horizontal Position" library="selenium">
+<doc>Returns horizontal position of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/p[2]/a[1]</arg>
+</arguments>
+<assign>
+<var>${total_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:23.402" level="INFO">${total_position_y} = 1004.0</msg>
+<status status="PASS" endtime="20181126 12:04:23.402" starttime="20181126 12:04:23.392"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${total_position_y} - 550</arg>
+</arguments>
+<assign>
+<var>${total_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:23.403" level="INFO">${total_position_y} = 454.0</msg>
+<status status="PASS" endtime="20181126 12:04:23.403" starttime="20181126 12:04:23.403"></status>
+</kw>
+<kw name="Execute Javascript" library="selenium">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,${total_position_y})</arg>
+</arguments>
+<msg timestamp="20181126 12:04:23.405" level="INFO">Executing JavaScript:
+window.scrollTo(0,454.0)
+Without any arguments.</msg>
+<status status="PASS" endtime="20181126 12:04:23.411" starttime="20181126 12:04:23.403"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:23.411" starttime="20181126 12:04:23.353"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:23.411" starttime="20181126 12:04:06.454"></status>
+</kw>
+<kw name="Given I am on the home page" library="keywords_bdd">
+<kw name="Go To" library="selenium">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:23.412" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" endtime="20181126 12:04:25.014" starttime="20181126 12:04:23.412"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:04:25.021" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" endtime="20181126 12:04:25.021" starttime="20181126 12:04:25.014"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:25.021" starttime="20181126 12:04:23.412"></status>
+</kw>
+<kw name="When I access the shopping cart" library="keywords_bdd">
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a</arg>
+</arguments>
+<msg timestamp="20181126 12:04:25.024" level="INFO">Clicking element 'xpath=/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a'.</msg>
+<status status="PASS" endtime="20181126 12:04:26.897" starttime="20181126 12:04:25.023"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:26.946" starttime="20181126 12:04:26.898"></status>
+</kw>
+<kw name="Get Horizontal Position" library="selenium">
+<doc>Returns horizontal position of element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/p[2]/a[1]</arg>
+</arguments>
+<assign>
+<var>${total_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:26.975" level="INFO">${total_position_y} = 1004.0</msg>
+<status status="PASS" endtime="20181126 12:04:26.975" starttime="20181126 12:04:26.947"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${total_position_y} - 550</arg>
+</arguments>
+<assign>
+<var>${total_position_y}</var>
+</assign>
+<msg timestamp="20181126 12:04:26.976" level="INFO">${total_position_y} = 454.0</msg>
+<status status="PASS" endtime="20181126 12:04:26.976" starttime="20181126 12:04:26.976"></status>
+</kw>
+<kw name="Execute Javascript" library="selenium">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,${total_position_y})</arg>
+</arguments>
+<msg timestamp="20181126 12:04:26.978" level="INFO">Executing JavaScript:
+window.scrollTo(0,454.0)
+Without any arguments.</msg>
+<status status="PASS" endtime="20181126 12:04:26.985" starttime="20181126 12:04:26.976"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:26.985" starttime="20181126 12:04:25.022"></status>
+</kw>
+<kw name="And I remove the product" library="keywords_bdd">
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id=1_1_0_0</arg>
+</arguments>
+<msg timestamp="20181126 12:04:26.987" level="INFO">Clicking element 'id=1_1_0_0'.</msg>
+<status status="PASS" endtime="20181126 12:04:27.272" starttime="20181126 12:04:26.987"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="selenium">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/p</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:28.590" starttime="20181126 12:04:27.272"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:28.590" starttime="20181126 12:04:26.986"></status>
+</kw>
+<kw name="Then I should confirm the exclusion" library="keywords_bdd">
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>xpath=//*[@id="center_column"]/p</arg>
+<arg>Your shopping cart is empty.</arg>
+</arguments>
+<msg timestamp="20181126 12:04:28.609" level="INFO">Element 'xpath=//*[@id="center_column"]/p' contains text 'Your shopping cart is empty.'.</msg>
+<status status="PASS" endtime="20181126 12:04:28.610" starttime="20181126 12:04:28.592"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:28.610" starttime="20181126 12:04:28.591"></status>
+</kw>
+<kw type="teardown" name="Close navigator" library="keywords_bdd">
+<kw name="Close Browser" library="selenium">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181126 12:04:30.019" starttime="20181126 12:04:28.611"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:30.020" starttime="20181126 12:04:28.611"></status>
+</kw>
+<tags>
+<tag>removeproduct</tag>
+</tags>
+<status status="PASS" endtime="20181126 12:04:30.020" critical="yes" starttime="20181126 12:04:06.453"></status>
+</test>
+<test id="s1-t6" name="Scenario 06: Add client">
+<kw type="setup" name="Open navigator" library="keywords_bdd">
+<kw name="Open Browser" library="selenium">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:30.025" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181126 12:04:38.217" starttime="20181126 12:04:30.025"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:38.217" starttime="20181126 12:04:30.025"></status>
+</kw>
+<kw name="Given I am on the home page" library="keywords_bdd">
+<kw name="Go To" library="selenium">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:38.223" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" endtime="20181126 12:04:42.967" starttime="20181126 12:04:38.223"></status>
+</kw>
+<kw name="Title Should Be" library="selenium">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>My Store</arg>
+</arguments>
+<msg timestamp="20181126 12:04:42.974" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" endtime="20181126 12:04:42.976" starttime="20181126 12:04:42.968"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:42.976" starttime="20181126 12:04:38.222"></status>
+</kw>
+<kw name="And I want to register on the site" library="keywords_bdd">
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>link=Sign in</arg>
+</arguments>
+<msg timestamp="20181126 12:04:42.978" level="INFO">Clicking element 'link=Sign in'.</msg>
+<status status="PASS" endtime="20181126 12:04:45.767" starttime="20181126 12:04:42.978"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>id=create-account_form</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:45.785" starttime="20181126 12:04:45.768"></status>
+</kw>
+<kw name="Email" library="faker">
+<assign>
+<var>${email}</var>
+</assign>
+<msg timestamp="20181126 12:04:45.789" level="INFO">${email} = christinajensen@hotmail.com</msg>
+<status status="PASS" endtime="20181126 12:04:45.790" starttime="20181126 12:04:45.785"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=email_create</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:45.790" level="INFO">Typing text 'christinajensen@hotmail.com' into text field 'id=email_create'.</msg>
+<status status="PASS" endtime="20181126 12:04:45.904" starttime="20181126 12:04:45.790"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id=SubmitCreate</arg>
+</arguments>
+<msg timestamp="20181126 12:04:45.905" level="INFO">Clicking element 'id=SubmitCreate'.</msg>
+<status status="PASS" endtime="20181126 12:04:46.185" starttime="20181126 12:04:45.904"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>id=account-creation_form</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:04:47.263" starttime="20181126 12:04:46.185"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:04:47.263" starttime="20181126 12:04:42.977"></status>
+</kw>
+<kw name="When I fill the required fields" library="keywords_bdd">
+<kw name="Click Element" library="selenium">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id=id_gender1</arg>
+</arguments>
+<msg timestamp="20181126 12:04:47.265" level="INFO">Clicking element 'id=id_gender1'.</msg>
+<status status="PASS" endtime="20181126 12:04:47.507" starttime="20181126 12:04:47.265"></status>
+</kw>
+<kw name="First Name" library="faker">
+<assign>
+<var>${first_name}</var>
+</assign>
+<msg timestamp="20181126 12:04:47.511" level="INFO">${first_name} = Cynthia</msg>
+<status status="PASS" endtime="20181126 12:04:47.511" starttime="20181126 12:04:47.507"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=customer_firstname</arg>
+<arg>${first_name}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:47.514" level="INFO">Typing text 'Cynthia' into text field 'id=customer_firstname'.</msg>
+<status status="PASS" endtime="20181126 12:04:47.570" starttime="20181126 12:04:47.512"></status>
+</kw>
+<kw name="Last Name" library="faker">
+<assign>
+<var>${last_name}</var>
+</assign>
+<msg timestamp="20181126 12:04:47.573" level="INFO">${last_name} = Mason</msg>
+<status status="PASS" endtime="20181126 12:04:47.573" starttime="20181126 12:04:47.570"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=customer_lastname</arg>
+<arg>${last_name}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:47.574" level="INFO">Typing text 'Mason' into text field 'id=customer_lastname'.</msg>
+<status status="PASS" endtime="20181126 12:04:47.622" starttime="20181126 12:04:47.573"></status>
+</kw>
+<kw name="Password" library="faker">
+<doc>Generates a random password.</doc>
+<assign>
+<var>${passwd}</var>
+</assign>
+<msg timestamp="20181126 12:04:47.624" level="INFO">${passwd} = ^7VFfXBjOl</msg>
+<status status="PASS" endtime="20181126 12:04:47.624" starttime="20181126 12:04:47.623"></status>
+</kw>
+<kw name="Input Password" library="selenium">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=passwd</arg>
+<arg>${passwd}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:47.625" level="INFO">Typing password into text field 'id=passwd'.</msg>
+<status status="PASS" endtime="20181126 12:04:47.664" starttime="20181126 12:04:47.624"></status>
+</kw>
+<kw name="Day Of Month" library="faker">
+<assign>
+<var>${birth_day}</var>
+</assign>
+<msg timestamp="20181126 12:04:47.665" level="INFO">${birth_day} = 29</msg>
+<status status="PASS" endtime="20181126 12:04:47.665" starttime="20181126 12:04:47.664"></status>
+</kw>
+<kw name="Strip String" library="string">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${birth_day}</arg>
+<arg>mode=left</arg>
+<arg>characters=0</arg>
+</arguments>
+<assign>
+<var>${birth_day_ns}</var>
+</assign>
+<msg timestamp="20181126 12:04:47.665" level="INFO">${birth_day_ns} = 29</msg>
+<status status="PASS" endtime="20181126 12:04:47.665" starttime="20181126 12:04:47.665"></status>
+</kw>
+<kw name="Select From List By Value" library="selenium">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>id=days</arg>
+<arg>${birth_day_ns}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:47.666" level="INFO">Selecting options from selection list 'id=days' by value 29.</msg>
+<status status="PASS" endtime="20181126 12:04:48.040" starttime="20181126 12:04:47.665"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20181126 12:04:50.041" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20181126 12:04:50.041" starttime="20181126 12:04:48.040"></status>
+</kw>
+<kw name="Month" library="faker">
+<assign>
+<var>${birth_month}</var>
+</assign>
+<msg timestamp="20181126 12:04:50.043" level="INFO">${birth_month} = 05</msg>
+<status status="PASS" endtime="20181126 12:04:50.043" starttime="20181126 12:04:50.042"></status>
+</kw>
+<kw name="Strip String" library="string">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${birth_month}</arg>
+<arg>mode=left</arg>
+<arg>characters=0</arg>
+</arguments>
+<assign>
+<var>${birth_month_ns}</var>
+</assign>
+<msg timestamp="20181126 12:04:50.046" level="INFO">${birth_month_ns} = 5</msg>
+<status status="PASS" endtime="20181126 12:04:50.046" starttime="20181126 12:04:50.044"></status>
+</kw>
+<kw name="Select From List By Value" library="selenium">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>id=months</arg>
+<arg>${birth_month_ns}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:50.048" level="INFO">Selecting options from selection list 'id=months' by value 5.</msg>
+<status status="PASS" endtime="20181126 12:04:50.342" starttime="20181126 12:04:50.046"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20181126 12:04:52.343" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20181126 12:04:52.343" starttime="20181126 12:04:50.342"></status>
+</kw>
+<kw name="Year" library="faker">
+<assign>
+<var>${birth_year}</var>
+</assign>
+<msg timestamp="20181126 12:04:52.345" level="INFO">${birth_year} = 1981</msg>
+<status status="PASS" endtime="20181126 12:04:52.345" starttime="20181126 12:04:52.344"></status>
+</kw>
+<kw name="Strip String" library="string">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${birth_year}</arg>
+<arg>mode=left</arg>
+</arguments>
+<assign>
+<var>${birth_year_ns}</var>
+</assign>
+<msg timestamp="20181126 12:04:52.348" level="INFO">${birth_year_ns} = 1981</msg>
+<status status="PASS" endtime="20181126 12:04:52.348" starttime="20181126 12:04:52.346"></status>
+</kw>
+<kw name="Select From List By Value" library="selenium">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>id=years</arg>
+<arg>${birth_year_ns}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:52.351" level="INFO">Selecting options from selection list 'id=years' by value 1981.</msg>
+<status status="PASS" endtime="20181126 12:04:52.676" starttime="20181126 12:04:52.349"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20181126 12:04:54.677" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20181126 12:04:54.677" starttime="20181126 12:04:52.676"></status>
+</kw>
+<kw name="Address" library="faker">
+<doc>:example '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<assign>
+<var>${address}</var>
+</assign>
+<msg timestamp="20181126 12:04:54.681" level="INFO">${address} = 00954 Steven Field Suite 899
+Carolstad, WI 86925</msg>
+<status status="PASS" endtime="20181126 12:04:54.681" starttime="20181126 12:04:54.677"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=address1</arg>
+<arg>${address}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:54.682" level="INFO">Typing text '00954 Steven Field Suite 899
+Carolstad, WI 86925' into text field 'id=address1'.</msg>
+<status status="PASS" endtime="20181126 12:04:54.779" starttime="20181126 12:04:54.681"></status>
+</kw>
+<kw name="City" library="faker">
+<doc>:example 'Sashabury'</doc>
+<assign>
+<var>${city}</var>
+</assign>
+<msg timestamp="20181126 12:04:54.781" level="INFO">${city} = Michelleport</msg>
+<status status="PASS" endtime="20181126 12:04:54.781" starttime="20181126 12:04:54.779"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=city</arg>
+<arg>${city}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:54.782" level="INFO">Typing text 'Michelleport' into text field 'id=city'.</msg>
+<status status="PASS" endtime="20181126 12:04:54.835" starttime="20181126 12:04:54.781"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20181126 12:04:56.836" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20181126 12:04:56.836" starttime="20181126 12:04:54.836"></status>
+</kw>
+<kw name="State" library="faker">
+<assign>
+<var>${state}</var>
+</assign>
+<msg timestamp="20181126 12:04:56.837" level="INFO">${state} = Vermont</msg>
+<status status="PASS" endtime="20181126 12:04:56.837" starttime="20181126 12:04:56.836"></status>
+</kw>
+<kw name="Select From List By Label" library="selenium">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>id=id_state</arg>
+<arg>${state}</arg>
+</arguments>
+<msg timestamp="20181126 12:04:56.837" level="INFO">Selecting options from selection list 'id=id_state' by label Vermont.</msg>
+<status status="PASS" endtime="20181126 12:04:57.123" starttime="20181126 12:04:56.837"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=postcode</arg>
+<arg>00000</arg>
+</arguments>
+<msg timestamp="20181126 12:04:57.125" level="INFO">Typing text '00000' into text field 'id=postcode'.</msg>
+<status status="PASS" endtime="20181126 12:04:57.187" starttime="20181126 12:04:57.124"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20181126 12:04:59.188" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20181126 12:04:59.188" starttime="20181126 12:04:57.187"></status>
+</kw>
+<kw name="Random Number" library="faker">
+<doc>Returns a random number with 1 digit (default, when digits==None),</doc>
+<arguments>
+<arg>digits=8</arg>
+</arguments>
+<assign>
+<var>${phone}</var>
+</assign>
+<msg timestamp="20181126 12:04:59.190" level="INFO">${phone} = 91833080</msg>
+<status status="PASS" endtime="20181126 12:04:59.191" starttime="20181126 12:04:59.189"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20181126 12:05:01.192" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20181126 12:05:01.192" starttime="20181126 12:04:59.191"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+</arguments>
+<msg timestamp="20181126 12:05:01.194" level="INFO">Typing text '91833080' into text field 'id=phone'.</msg>
+<status status="PASS" endtime="20181126 12:05:01.289" starttime="20181126 12:05:01.193"></status>
+</kw>
+<kw name="Random Number" library="faker">
+<doc>Returns a random number with 1 digit (default, when digits==None),</doc>
+<arguments>
+<arg>digits=8</arg>
+</arguments>
+<assign>
+<var>${phone_2}</var>
+</assign>
+<msg timestamp="20181126 12:05:01.290" level="INFO">${phone_2} = 50840436</msg>
+<status status="PASS" endtime="20181126 12:05:01.290" starttime="20181126 12:05:01.289"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=phone_mobile</arg>
+<arg>${phone_2}</arg>
+</arguments>
+<msg timestamp="20181126 12:05:01.290" level="INFO">Typing text '50840436' into text field 'id=phone_mobile'.</msg>
+<status status="PASS" endtime="20181126 12:05:01.337" starttime="20181126 12:05:01.290"></status>
+</kw>
+<kw name="Street Address" library="faker">
+<doc>:example '791 Crist Parks'</doc>
+<assign>
+<var>${address_2}</var>
+</assign>
+<msg timestamp="20181126 12:05:01.340" level="INFO">${address_2} = 29882 Adams Crescent</msg>
+<status status="PASS" endtime="20181126 12:05:01.340" starttime="20181126 12:05:01.337"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20181126 12:05:03.341" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20181126 12:05:03.341" starttime="20181126 12:05:01.341"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=alias</arg>
+<arg>${address_2}</arg>
+</arguments>
+<msg timestamp="20181126 12:05:03.343" level="INFO">Typing text '29882 Adams Crescent' into text field 'id=alias'.</msg>
+<status status="PASS" endtime="20181126 12:05:03.443" starttime="20181126 12:05:03.342"></status>
+</kw>
+<kw name="Click Button" library="selenium">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>id=submitAccount</arg>
+</arguments>
+<msg timestamp="20181126 12:05:03.444" level="INFO">Clicking button 'id=submitAccount'.</msg>
+<status status="PASS" endtime="20181126 12:05:05.509" starttime="20181126 12:05:03.443"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:05:05.509" starttime="20181126 12:04:47.264"></status>
+</kw>
+<kw name="Then I should see the account management page" library="keywords_bdd">
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>id=center_column</arg>
+<arg>timeout=8s</arg>
+</arguments>
+<status status="PASS" endtime="20181126 12:05:05.534" starttime="20181126 12:05:05.511"></status>
+</kw>
+<kw name="Element Text Should Be" library="selenium">
+<doc>Verifies that element ``locator`` contains exact text ``expected``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div[2]/div/div[3]/div/h1</arg>
+<arg>MY ACCOUNT</arg>
+</arguments>
+<msg timestamp="20181126 12:05:05.536" level="INFO">Verifying element 'xpath=/html/body/div/div[2]/div/div[3]/div/h1' contains exact text 'MY ACCOUNT'.</msg>
+<status status="PASS" endtime="20181126 12:05:05.571" starttime="20181126 12:05:05.535"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:05:05.571" starttime="20181126 12:05:05.510"></status>
+</kw>
+<kw type="teardown" name="Close navigator" library="keywords_bdd">
+<kw name="Close Browser" library="selenium">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181126 12:05:07.004" starttime="20181126 12:05:05.573"></status>
+</kw>
+<status status="PASS" endtime="20181126 12:05:07.004" starttime="20181126 12:05:05.572"></status>
+</kw>
+<tags>
+<tag>addclient</tag>
+</tags>
+<status status="PASS" endtime="20181126 12:05:07.005" critical="yes" starttime="20181126 12:04:30.024"></status>
+</test>
+<status status="PASS" endtime="20181126 12:05:07.008" starttime="20181126 12:02:53.385"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="6">Critical Tests</stat>
+<stat fail="0" pass="6">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">addclient</stat>
+<stat fail="0" pass="1">addproduct</stat>
+<stat fail="0" pass="1">existproduct</stat>
+<stat fail="0" pass="1">listproduct</stat>
+<stat fail="0" pass="1">noproduct</stat>
+<stat fail="0" pass="1">removeproduct</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test Suite 01 Bdd" pass="6">Test Suite 01 Bdd</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

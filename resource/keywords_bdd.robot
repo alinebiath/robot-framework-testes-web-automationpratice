@@ -65,10 +65,8 @@ I add to shopping cart the listed product
     selenium.Page Should Contain Element                                             xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
     selenium.Mouse Over                                                              xpath=//*[@id="center_column"]/ul/li/div
     selenium.Wait Until Element is Visible                                           xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]       timeout=8s
-    #obter a posição horizontal do botão "Add to cart"
-    ${btn_position_y}                                                                selenium.Get Horizontal Position                                  xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
-    #executar comando de scroll de 0 até a posíção do botão "Add to cart"
-    selenium.Execute Javascript                                                      window.scrollTo(0,${btn_position_y})
+    Set Test Variable                                                                ${locator}                                                        xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
+    Scroll to                                                                        ${locator}
     selenium.Click Element                                                           xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
 
 I proceed to checkout
@@ -163,3 +161,10 @@ I have at least one product in my cart
     I add to shopping cart the listed product
     I proceed to checkout
     I should see the shopping cart page with the products and its data and values
+
+Scroll to
+    [Arguments]                                                                      ${locator}
+    #obter a posição horizontal do botão "Add to cart"
+    ${element_position_y}                                                            selenium.Get Horizontal Position                                  ${locator}
+    #executar comando de scroll de 0 até a posíção do botão "Add to cart"
+    selenium.Execute Javascript                                                      window.scrollTo(0,${element_position_y})

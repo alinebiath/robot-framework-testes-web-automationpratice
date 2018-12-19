@@ -106,12 +106,14 @@ I should see the searched product "${product}"
     selenium.Element Should Be Visible                                               xpath=//*[@id="center_column"]/ul/li/div[@class="product-container"]
     #checar se o texto do produto exibido contém a palavra pesquisada.
     selenium.Element Should Be Visible                                               xpath=//*[@id="center_column"]//a[contains(@title,${product})]
+    selenium.Capture Page Screenshot                                                 outuput_existproduct01.png
 
 I should see the message "No results were found for your search "${no_product}""
 # validação de resultado para produtos pesquisados e não existentes
     selenium.Wait Until Page Contains Element                                        css=#center_column > h1
     #verifica se a mensagem de "no results were found" é exibido na página.
     selenium.Element Should Contain                                                  xpath=//*[@id="center_column"]/p[@class="alert alert-warning"]          ${no_product}
+    selenium.Capture Page Screenshot                                                 outuput_noexistproduct01.png
 
 I should see the page with the selected product "${product}"
 # validação de resultado para produtos selecionados no menu principal
@@ -123,6 +125,7 @@ I should see the page with the selected product "${product}"
     Should Be Equal                                                                  ${textoSemEspaco}                                                       ${product}                                                     ignore_case=true
     #checar se algum produto é exibido no body.
     selenium.Element Should Be Visible                                               xpath=//*[@id="center_column"]/ul[@class="product_list grid row"]
+    selenium.Capture Page Screenshot                                                 outuput_existproduct02.png
 
 I should see the shopping cart page with the products and its data and values
 # validação dos dados do produto no carrinho
@@ -130,15 +133,18 @@ I should see the shopping cart page with the products and its data and values
     selenium.Element Should Contain                                                  css=td.cart_description > p:nth-child(1) > a:nth-child(1)               Faded Short Sleeve T-shirts
     Set Test Variable                                                                ${locator}                                                              xpath=//*[@id="center_column"]/p[2]/a[1]
     Scroll to specifc Position                                                       ${locator}
+    selenium.Capture Page Screenshot                                                 cart_product01.png
 
 I should confirm the exclusion
 # validação do carrinho vazio
     selenium.Element Should Contain                                                  xpath=//*[@id="center_column"]/p                                        Your shopping cart is empty.
+    selenium.Capture Page Screenshot                                                 empty_cart01.png
 
 I should see the account management page
 # validação da criação do cadastro
     selenium.Wait Until Page Contains Element                                        id=center_column                                                        timeout=8s
     selenium.Element Text Should Be                                                  xpath=/html/body/div/div[2]/div/div[3]/div/h1                           MY ACCOUNT
+    selenium.Capture Page Screenshot                                                 created_account01.png
 
 
 ###common

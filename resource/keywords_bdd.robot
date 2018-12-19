@@ -15,6 +15,7 @@ ${BROWSER}    firefox
 ###Setup and Teardown
 Open navigator
     selenium.Open Browser                                                            about:blank                                                       ${BROWSER}
+    selenium.Maximize Browser Window
 Close navigator
     selenium.Close Browser
 
@@ -62,11 +63,10 @@ I should see the page with the selected product "${product}"
 I add to shopping cart the listed product
     selenium.Wait Until Page Contains Element                                        css:#center_column > h1
     selenium.Element Should Contain                                                  css:#center_column > ul > li > div > div.right-block > h5 > a     Faded Short Sleeve T-shirts
-    selenium.Page Should Contain Element                                             xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
     selenium.Mouse Over                                                              xpath=//*[@id="center_column"]/ul/li/div
     selenium.Wait Until Element is Visible                                           xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]       timeout=8s
     Set Test Variable                                                                ${locator}                                                        xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
-    Scroll to                                                                        ${locator}
+    Scroll to element                                                                ${locator}
     selenium.Click Element                                                           xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
 
 I proceed to checkout
@@ -77,23 +77,15 @@ I proceed to checkout
 I should see the shopping cart page with the products and its data and values
     selenium.Wait Until Page Contains Element                                        xpath=//*[@id="center_column"]                                    timeout=8s
     selenium.Element Should Contain                                                  css:td.cart_description > p:nth-child(1) > a:nth-child(1)         Faded Short Sleeve T-shirts
-    #obter a posição horizontal do botão "Proceed to checkout"
-    ${total_position_y}                                                              selenium.Get Horizontal Position                                  xpath=//*[@id="center_column"]/p[2]/a[1]
-    # subtrai 550 da posição obtida
-    ${total_position_y}                                                              Evaluate                                                          ${total_position_y} - 550
-    #executa o scroll de 0 até a posição - 550
-    selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})
+    Set Test Variable                                                                ${locator}                                                        xpath=//*[@id="center_column"]/p[2]/a[1]
+    Scroll to specifc Position                                                       ${locator}
 
 # Scenario 05: Remove products
 I access the shopping cart
     selenium.Click Element                                                           xpath=/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a
     selenium.Wait Until Page Contains Element                                        xpath=//*[@id="center_column"]                                    timeout=8s
-    #obter a posição horizontal do botão "Proceed to checkout"
-    ${total_position_y}                                                              selenium.Get Horizontal Position                                  xpath=//*[@id="center_column"]/p[2]/a[1]
-    # subtrai 550 da posição obtida
-    ${total_position_y}                                                              Evaluate                                                          ${total_position_y} - 550
-    #executa o scroll de 0 até a posição - 550
-    selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})
+    Set Test Variable                                                                ${locator}                                                        xpath=//*[@id="center_column"]/p[2]/a[1]
+    Scroll to specifc Position                                                       ${locator}
 
 I remove the product
     selenium.Click Element                                                           id=1_1_0_0
@@ -128,7 +120,7 @@ I fill the required fields
     ${birth_year}=                                                                   faker.Year
     ${birth_year_ns}=                                                                string.Strip String                                               ${birth_year}                                                  mode=left
     selenium.Select From List By Value                                               id=years                                                          ${birth_year_ns}
-    ${address}=                                                                      faker.Address
+    ${address}=                                                                      faker.Street Address
     selenium.Input Text                                                              id=address1                                                       ${address}
     ${city}=                                                                         faker.City
     selenium.Input Text                                                              id=city                                                           ${city}
@@ -162,9 +154,18 @@ I have at least one product in my cart
     I proceed to checkout
     I should see the shopping cart page with the products and its data and values
 
-Scroll to
+Scroll to element
     [Arguments]                                                                      ${locator}
-    #obter a posição horizontal do botão "Add to cart"
+    #obter a posição horizontal do elemento
     ${element_position_y}                                                            selenium.Get Horizontal Position                                  ${locator}
-    #executar comando de scroll de 0 até a posíção do botão "Add to cart"
+    #executar comando de scroll de 0 até a posíção do elemento
     selenium.Execute Javascript                                                      window.scrollTo(0,${element_position_y})
+
+Scroll to specifc Position
+    [Arguments]                                                                      ${locator}
+    #obter a posição horizontal do elemento
+    ${element_position_y}                                                            selenium.Get Horizontal Position                                  ${locator}
+    # subtrai 550 da posição obtida
+    ${total_position_y}                                                              Evaluate                                                          ${element_position_y} - 550
+    #executa o scroll de 0 até a posição - 550
+    selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})

@@ -29,7 +29,7 @@ I select the "WOMEN" category in the main menu categories
     selenium.Mouse Over                                                              css=#block_top_menu > ul > li:nth-child(1) > a
 
 I select the sub-category "${product}"
-    selenium.Wait Until Element is Visible                                           xpath=//*[@id="block_top_menu"]/ul/li[1]/ul                             timeout=12s
+    selenium.Wait Until Element is Visible                                           xpath=//*[@id="block_top_menu"]/ul/li[1]/ul                             timeout=8s
     selenium.Click Element                                                           link=${product}
 
 I add to shopping cart the listed product
@@ -133,7 +133,7 @@ I should see the shopping cart page with the products and its data and values
     #solução alternativa para fazer scroll até um ponto da página e fazer screenshot
     ${element_position_y}                                                            selenium.Get Horizontal Position                                        xpath=//*[@id="center_column"]/p[2]/a[1]
     ${total_position_y}                                                              std.Evaluate                                                            ${element_position_y} - 550
-    #executa o scroll de 0 até a posição - 550 
+    #executa o scroll de 0 até a posição - 550
     selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})
     selenium.Capture Page Screenshot                                                 cart_product01.png
 

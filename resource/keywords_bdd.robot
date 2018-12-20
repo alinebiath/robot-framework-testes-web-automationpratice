@@ -46,8 +46,6 @@ I proceed to checkout
 I access the shopping cart
     selenium.Click Element                                                           xpath=/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a
     selenium.Wait Until Page Contains Element                                        xpath=//*[@id="center_column"]                                          timeout=8s
-    Set Test Variable                                                                ${locator}                                                              xpath=//*[@id="center_column"]/p[2]/a[1]
-    Scroll to specifc Position                                                       ${locator}
 
 I remove the product
     selenium.Click Element                                                           id=1_1_0_0
@@ -131,8 +129,11 @@ I should see the shopping cart page with the products and its data and values
 # validação dos dados do produto no carrinho
     selenium.Wait Until Page Contains Element                                        xpath=//*[@id="center_column"]                                          timeout=8s
     selenium.Element Should Contain                                                  css=td.cart_description > p:nth-child(1) > a:nth-child(1)               Faded Short Sleeve T-shirts
-    Set Test Variable                                                                ${locator}                                                              xpath=//*[@id="center_column"]/p[2]/a[1]
-    Scroll to specifc Position                                                       ${locator}
+    #solução alternativa para fazer scroll até um ponto da página e fazer screenshot
+    ${element_position_y}                                                            selenium.Get Horizontal Position                                        xpath=//*[@id="center_column"]/p[2]/a[1]
+    ${total_position_y}                                                              Evaluate                                                                ${element_position_y} - 550
+    #executa o scroll de 0 até a posição - 550
+    selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})
     selenium.Capture Page Screenshot                                                 cart_product01.png
 
 I should confirm the exclusion
@@ -169,12 +170,5 @@ Scroll to element
     #executar comando de scroll de 0 até a posíção do elemento
     selenium.Execute Javascript                                                      window.scrollTo(0,${element_position_y})
 
-Scroll to specifc Position
-    [Arguments]                                                                      ${locator}
-    #obter a posição horizontal do elemento
-    ${element_position_y}                                                            selenium.Get Horizontal Position                                        ${locator}
-    # subtrai 550 da posição obtida
-    ${total_position_y}                                                              Evaluate                                                                ${element_position_y} - 550
-    #executa o scroll de 0 até a posição - 550
-    selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})
+
 

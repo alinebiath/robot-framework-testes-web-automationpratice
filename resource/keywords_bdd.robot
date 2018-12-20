@@ -5,6 +5,7 @@ Library       SeleniumLibrary                            WITH NAME    selenium
 Library       String                                     WITH NAME    string
 # para geração de dados de teste aleartórios.
 Library       FakerLibrary                               WITH NAME    faker
+Library       BuiltIn                                    WITH NAME    std
 
 *** Variables ***
 ${URL}        http://automationpractice.com/index.php
@@ -34,7 +35,7 @@ I select the sub-category "${product}"
 I add to shopping cart the listed product
     selenium.Mouse Over                                                              xpath=//*[@id="center_column"]/ul/li/div
     selenium.Wait Until Element is Visible                                           xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]             timeout=8s
-    Set Test Variable                                                                ${locator}                                                              xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
+    std.Set Test Variable                                                            ${locator}                                                              xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
     Scroll to element                                                                ${locator}
     selenium.Click Element                                                           xpath=//*[@id="center_column"]/ul/li/div/div[2]/div[2]/a[1]
 
@@ -99,7 +100,7 @@ I should see the searched product "${product}"
     #checar se o texto "SEARCH - produto" da página de resultado confere com o produto pesquisado.
     ${texto}                                                                         selenium.Get Text                                                       xpath=//*[@id="center_column"]/h1/span[1]
     ${textoSemEspaco}                                                                string.Strip String                                                     ${texto}                                                       mode=both           characters="
-    Should Be Equal                                                                  ${textoSemEspaco}                                                       ${product}                                                     ignore_case=True
+    std.Should Be Equal                                                              ${textoSemEspaco}                                                       ${product}                                                     ignore_case=True
     #checar se o produto é exibido no body.
     selenium.Element Should Be Visible                                               xpath=//*[@id="center_column"]/ul/li/div[@class="product-container"]
     #checar se o texto do produto exibido contém a palavra pesquisada.
@@ -120,7 +121,7 @@ I should see the page with the selected product "${product}"
     #checar se o texto do cabeçalho do resultado da busca confere com o produto pesquisado.
     ${texto}                                                                         selenium.Get Text                                                       xpath=//*[@id="center_column"]/h1/span[1]
     ${textoSemEspaco}                                                                string.Strip String                                                     ${texto}                                                       mode=both
-    Should Be Equal                                                                  ${textoSemEspaco}                                                       ${product}                                                     ignore_case=true
+    std.Should Be Equal                                                              ${textoSemEspaco}                                                       ${product}                                                     ignore_case=true
     #checar se algum produto é exibido no body.
     selenium.Element Should Be Visible                                               xpath=//*[@id="center_column"]/ul[@class="product_list grid row"]
     selenium.Capture Page Screenshot                                                 outuput_existproduct02.png
@@ -131,7 +132,7 @@ I should see the shopping cart page with the products and its data and values
     selenium.Element Should Contain                                                  css=td.cart_description > p:nth-child(1) > a:nth-child(1)               Faded Short Sleeve T-shirts
     #solução alternativa para fazer scroll até um ponto da página e fazer screenshot
     ${element_position_y}                                                            selenium.Get Horizontal Position                                        xpath=//*[@id="center_column"]/p[2]/a[1]
-    ${total_position_y}                                                              Evaluate                                                                ${element_position_y} - 550
+    ${total_position_y}                                                              std.Evaluate                                                            ${element_position_y} - 550
     #executa o scroll de 0 até a posição - 550
     selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})
     selenium.Capture Page Screenshot                                                 cart_product01.png

@@ -66,17 +66,17 @@ I fill the required fields
     selenium.Input Text                                                              id=customer_firstname                                                   ${first_name}
     ${last_name}=                                                                    faker.Last Name
     selenium.Input Text                                                              id=customer_lastname                                                    ${last_name}
-    ${passwd}=                                                                       faker.Password
-    selenium.Input Password                                                          id=passwd                                                               ${passwd}
+    ${password}=                                                                     faker.Password
+    selenium.Input Password                                                          id=passwd                                                               ${password}
     ${birth_day}=                                                                    faker.Day Of Month
-    ${birth_day_ns}=                                                                 string.Strip String                                                     ${birth_day}                                                   mode=left           characters=0
-    selenium.Select From List By Value                                               id=days                                                                 ${birth_day_ns}
+    ${birth_day_nospace}=                                                            string.Strip String                                                     ${birth_day}                                                   mode=left           characters=0
+    selenium.Select From List By Value                                               id=days                                                                 ${birth_day_nospace}
     ${birth_month}=                                                                  faker.Month
-    ${birth_month_ns}=                                                               string.Strip String                                                     ${birth_month}                                                 mode=left           characters=0
-    selenium.Select From List By Value                                               id=months                                                               ${birth_month_ns}
+    ${birth_month_nospace}=                                                          string.Strip String                                                     ${birth_month}                                                 mode=left           characters=0
+    selenium.Select From List By Value                                               id=months                                                               ${birth_month_nospace}
     ${birth_year}=                                                                   faker.Year
-    ${birth_year_ns}=                                                                string.Strip String                                                     ${birth_year}                                                  mode=left
-    selenium.Select From List By Value                                               id=years                                                                ${birth_year_ns}
+    ${birth_year_nospace}=                                                           string.Strip String                                                     ${birth_year}                                                  mode=left
+    selenium.Select From List By Value                                               id=years                                                                ${birth_year_nospace}
     ${address}=                                                                      faker.Street Address
     selenium.Input Text                                                              id=address1                                                             ${address}
     ${city}=                                                                         faker.City
@@ -133,7 +133,7 @@ I should see the shopping cart page with the products and its data and values
     #solução alternativa para fazer scroll até um ponto da página e fazer screenshot
     ${element_position_y}                                                            selenium.Get Horizontal Position                                        xpath=//*[@id="center_column"]/p[2]/a[1]
     ${total_position_y}                                                              std.Evaluate                                                            ${element_position_y} - 550
-    #executa o scroll de 0 até a posição - 550
+    #executa o scroll de 0 até a posição - 550 
     selenium.Execute Javascript                                                      window.scrollTo(0,${total_position_y})
     selenium.Capture Page Screenshot                                                 cart_product01.png
 

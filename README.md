@@ -5,5 +5,5 @@ Robot Framework is a Python-based, extensible keyword-driven test automation fra
 
 Some advantages of the Robot Framework are the ability to create tests for any plataform and the use of the various availables libraries to produce tests to any type applications.
 
-In this model I'm automating acceptance tests, using scenarios writed in BDD and the Selenium library for Robot framework.
+In this model I'm automating acceptance tests, using scenarios written in BDD and the Selenium library to interact with the browser.
 Some others libraries were used to support the tests.

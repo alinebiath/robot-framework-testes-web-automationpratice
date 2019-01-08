@@ -1,18 +1,15 @@
 *** Settings ***
-# para testar um aplicação web.
-Library       SeleniumLibrary                            WITH NAME    selenium
-# para manipular strings.
-Library       String                                     WITH NAME    string
-# para geração de dados de teste aleartórios.
-Library       FakerLibrary                               WITH NAME    faker
-Library       BuiltIn                                    WITH NAME    std
+
+Resource    libraries.robot
 
 *** Variables ***
+
 ${URL}        http://automationpractice.com/index.php
 ${BROWSER}    firefox
 
 
 *** Keywords ***
+
 ###Setup and Teardown
 Open navigator
     selenium.Open Browser                                                            about:blank                                                             ${BROWSER}

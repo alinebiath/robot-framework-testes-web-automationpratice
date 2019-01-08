@@ -1,12 +1,13 @@
 *** Settings ***
+Documentation   Test suites in procedural mode.
 Test Setup       Open navigator
 Test Teardown    Close navigator
-Resource         ../resource/keywords_procedural.robot
+Resource         ../keywords/keywords_procedural.robot
 
 
 *** Test Case ***
-TestCase_01: Search for existing product
-    Access the home page
+# TestCase_01: Search for existing product
+    #Access the home page
     #Check if the home page was displayed
     #Enter the product name "Blouse" in the search field
     #Click the search button

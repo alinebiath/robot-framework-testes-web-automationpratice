@@ -1,7 +1,11 @@
 *** Settings ***
+Documentation   Test suite to validate behaviour of the Selenium community
+...             test web page http://automationpractice.com/index.php.
+
+Resource         ../keywords/keywords_bdd.robot
+
 Test Setup       Open navigator
 Test Teardown    Close navigator
-Resource         ../resource/keywords_bdd.robot
 
 
 *** Test Case ***

@@ -1,4 +1,4 @@
-# Robot_project_webapp_automationpractice
+# Automating web app tests with Robot Framework.
 Small demonstration of a project to automate web application tests with Robot Framework.
 
 Robot Framework is a Python-based, extensible keyword-driven test automation framework for end-to-end acceptance testing and acceptance-test-driven development (ATDD). Read more: http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html

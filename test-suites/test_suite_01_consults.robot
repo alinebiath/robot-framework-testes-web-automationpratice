@@ -1,14 +1,15 @@
 *** Settings ***
-Documentation   Test suite to validate behaviour of the Selenium community
-...             test web page http://automationpractice.com/index.php.
+Documentation    Test suite to validate behaviour of the consults and
+...              interactions with shopping cart in website:
+...              http://automationpractice.com/index.php
 
-Resource         ../keywords/keywords_bdd.robot
+Resource         ../keywords/keywords_01_consults.robot
 
 Test Setup       Open navigator
 Test Teardown    Close navigator
 
 
-*** Test Case ***
+*** Test Cases ***
 Scenario 01: Search for existing products
     [Tags]                                                                                          existproduct
     Given I am on the home page
@@ -45,9 +46,3 @@ Scenario 05: Remove products
     And I remove the product
     Then I should confirm the exclusion
 
-Scenario 06: Add client
-    [Tags]                                                                                          addclient
-    Given I am on the home page
-    And I want to register on the site
-    When I fill the required fields
-    Then I should see the account management page

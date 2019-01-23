@@ -24,9 +24,9 @@ This command will perform pip installation of what is required by the Robot Fram
 ### 3. Running Robot Framework tests
 To run all tests from all suites:
 ```sh
-$ robot -d /output test-suites/
+$ robot -d output/ test-suites/
 ```
 To run only the test with the <i>addclient</i> tag of the test suites:
 ```sh
-$ robot -d /output -i addclient test-suites/
+$ robot -d output/ -i addclient test-suites/
 ```

@@ -26,7 +26,7 @@ To run all tests from all suites:
 ```sh
 $ robot -d /output test-suites/
 ```
-To run only the test with the addclient tag of the test suites:
+To run only the test with the <i>addclient</i> tag of the test suites:
 ```sh
 $ robot -d /output -i addclient test-suites/
 ```

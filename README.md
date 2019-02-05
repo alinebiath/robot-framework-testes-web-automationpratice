@@ -31,3 +31,25 @@ To run only the test with the <i>addclient</i> tag of the test suites:
 ```sh
 $ robot -d output/ -i addclient test-suites/
 ```
+### 4. The robotframework-faker library for random test data generation
+ - An interesting library for generating random data when you do not have large test mass volumes
+ - Just install and instantiate the library and apply its easy keywords:
+ ```sh
+ *** Settings ***
+ Library       FakerLibrary   WITH NAME    faker
+ 
+ *** Keywords ***
+ I fill the required fields
+  [Documentantiom]            Filling in the user registration
+    ${first_name}=            faker.First Name
+    selenium.Input Text       id=customer_firstname     ${first_name}
+    ${last_name}=             faker.Last Name
+    selenium.Input Text       id=customer_lastname      ${last_name}
+    ${password}=              faker.Password            length=6
+    selenium.Input Password   id=passwd                 ${password}
+ ```
+- See that just applying the FakerLibrary keyword "First Name", will be stored in the variable any name.
+- The same is done to last name and password. For the password an additional option were passed, where the number of characters of the password is 6.
+- See more in https://guykisel.github.io/robotframework-faker
+ 
+ 

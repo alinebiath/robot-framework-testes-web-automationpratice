@@ -1,7 +1,7 @@
 # Automated tests for website with Robot Framework
 
 - Tests applied to sample ecommerce website: http://automationpractice.com/index.php
-- Were tested basic flows such as registering new customer, consulting products and adding products to the cart
+- Were tested basic flows such as registering new customer, consult of products and adding products to the cart
 
 ### 1. Pre-conditions for the tests
 - Clone the project

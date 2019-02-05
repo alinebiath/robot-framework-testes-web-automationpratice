@@ -8,7 +8,7 @@
 - Python 2.7.15 installed
 - Gheckodriver to Firefox browser tests.See how: https://take.net/blog/take-test/instalacao-geckodriver-driver-para-abrir-o-firefox-no-selenium/
 - Chromedriver to Chrome browser tests. See how: http://chromedriver.chromium.org/getting-started
-- Use an ASCII editor of your preference (i.e. VSCode, Atom, RIDE, etc)</br>https://take.net/blog/take-test/instalacao-geckodriver-driver-para-abrir-o-firefox-no-selenium/
+- Use an ASCII editor of your preference (i.e. VSCode, Atom, RIDE, etc)</br>
 
 ### 2. Installing required Python libraries
 With the pre-conditions satisfied, the libraries required to run the tests must be installed. At the terminal, execute the command below:

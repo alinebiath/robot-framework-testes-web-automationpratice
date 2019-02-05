@@ -40,7 +40,7 @@ $ robot -d output/ -i addclient test-suites/
  
  *** Keywords ***
  I fill the required fields
-  [Documentantiom]            Filling in the user registration
+  [Documentantion]            Filling in the user registration
     ${first_name}=            faker.First Name
     selenium.Input Text       id=customer_firstname     ${first_name}
     ${last_name}=             faker.Last Name

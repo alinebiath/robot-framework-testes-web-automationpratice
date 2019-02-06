@@ -36,7 +36,7 @@ $ robot -d output/ -i addclient test-suites/
  - Just install and instantiate the library and apply its easy keywords:
  ```sh
  *** Settings ***
- Library       FakerLibrary   WITH NAME    faker
+ Library       FakerLibrary  locale=pt_BR   WITH NAME    faker
  
  *** Keywords ***
  I fill the required fields
@@ -50,6 +50,7 @@ $ robot -d output/ -i addclient test-suites/
  ```
 - See that just applying the FakerLibrary keyword "First Name", will be stored in the variable any name.
 - The same is done to last name and password. For the password an additional option were passed, where the number of characters of the password is 6.
+- The <i>locale option</i> generate data in portuguese language.
 - See more in https://guykisel.github.io/robotframework-faker
  
  

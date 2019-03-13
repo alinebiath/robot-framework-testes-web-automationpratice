@@ -7,7 +7,7 @@
 The tests are structured in directories as follows:
 - **keywords**: contains <i>.robot</i> files with implementation keywords.
 - **test-suites**: contains the <i>.robot</i> file with test suites (scenarios or test cases).
-- **.gitignore**: ccontains files to be ignored by git.
+- **.gitignore**: contains files to be ignored by git.
 - **requirements.txt**: file containing the calls for installation of the robot framework and the necessary libraries.</br>
 
 ### 2. Pre-conditions for the tests

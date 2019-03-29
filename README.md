@@ -13,7 +13,7 @@ The tests are structured in directories as follows:
 ### 2. Pre-conditions for the tests
 - Clone the project
 - Python 2.7.15 installed
-- Gheckodriver to Firefox browser tests.See how: https://take.net/blog/take-test/instalacao-geckodriver-driver-para-abrir-o-firefox-no-selenium/
+- Gheckodriver to Firefox browser tests. See how: https://take.net/blog/take-test/instalacao-geckodriver-driver-para-abrir-o-firefox-no-selenium/
 - Chromedriver to Chrome browser tests. See how: http://chromedriver.chromium.org/getting-started
 - Use an ASCII editor of your preference (i.e. VSCode, Atom, RIDE, etc)</br>
 

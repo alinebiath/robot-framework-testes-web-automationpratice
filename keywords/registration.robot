@@ -1,11 +1,10 @@
 *** Settings ***
 
-Resource    keywords_common.robot
+Resource    common.robot
 Resource    libraries.robot
 
 *** Keywords ***
 
-####Actions
 I want to register on the site
     selenium.Click Element                       link=Sign in
 
@@ -90,13 +89,6 @@ I fill the required fields
 
     selenium.Click Button                        id=submitAccount
 
-###Validations
-I should see the account management page
-# validação da criação do cadastro
-    selenium.Wait Until Page Contains Element    id=center_column
-    ...                                          timeout=15s
-
-    selenium.Element Text Should Be              xpath=/html/body/div/div[2]/div/div[3]/div/h1
-    ...                                          MY ACCOUNT
+    I should see the account management page
 
     selenium.Capture Page Screenshot             created_account01.png

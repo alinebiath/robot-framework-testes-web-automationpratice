@@ -71,11 +71,9 @@ Generating documentation for existing test cases:
 
 ```sh
 $ python -m robot.testdoc test-suites/ doc/test-suites.html
-C:\exemplos_estudos\Robot_tests\curso_basico\robot-automationpratice-web-app\doc\test-suites.html
 ```
 Generating documentation for user keywords (i.e.: common.robot):
 
 ```sh
 $ python -m robot.libdoc keywords/common.robot doc/common.html
-C:\exemplos_estudos\Robot_tests\curso_basico\robot-automationpratice-web-app\doc\common.html
 ```

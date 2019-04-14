@@ -35,7 +35,7 @@ $ pip install -r requirements.txt --user
 
 > Download Chrome driver at http://chromedriver.chromium.org/downloads to run test against Chrome
 
-After download the driver(s) to desired directory, i.e.: $HOME/browse-drivers, setup your $PATH variable to recognize the drivers location by editing the properly file that the used terminal command will reads and executes commands from. Or, type the following command on terminal:
+After download the driver(s) to desired directory, i.e.: $HOME/browse-drivers/<drive-browse-dir>/, setup your $PATH variable to recognize the drivers location by editing the properly file that the used terminal command will reads and executes commands from. Or, type the following command on terminal:
 
 ```sh
 $ export GECKODRIVER_HOME=$HOME/browse-drivers/geckodriver
@@ -51,18 +51,18 @@ $ export $PATH=$PATH:$CHROMEDRIVER_HOME
 Runnig all tests:
 
 ```sh
-$ robot -d output/ test-suites/
+$ robot -d output/all test-suites/
 ```
 
 Running only basic scenarios:
 ```sh
-$ robot -d output/ -i basic test-suites/
+$ robot -d output/basic-scenarios -i basic test-suites/
 ```
 
 Running tests on Chrome browser:
 
 ```sh
-$ robot -d output/ -v BROWSER:chrome test-suites/
+$ robot -d output/all -v BROWSER:chrome test-suites/
 ```
 
 ## 5. Generating additional documentation

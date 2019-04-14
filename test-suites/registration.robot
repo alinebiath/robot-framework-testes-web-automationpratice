@@ -1,4 +1,5 @@
 *** Settings ***
+
 Documentation    Test suite to validate behaviour of the customer
 ...              registration in website.
 
@@ -9,8 +10,9 @@ Test Teardown    Close navigator
 
 
 *** Test Cases ***
+
 Scenario 01: Add client
-    [Tags]                                               addclient
+    [Tags]                                               basic
     Given I am a non-registered user on the home page
     And I want to register on the site
     When I fill the required fields

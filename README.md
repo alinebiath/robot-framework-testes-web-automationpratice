@@ -46,7 +46,7 @@ $ export $PATH=$PATH:$CHROMEDRIVER_HOME
 ```
 
 ## 4. Running acceptance tests
-> The above commands should be execute on terminal command at the root project directory.
+The above commands should be execute on terminal command at the root project directory.
 
 Runnig all tests:
 

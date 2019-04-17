@@ -9,7 +9,7 @@ I want to register on the site
     selenium.Click Element                       link=Sign in
 
     selenium.Wait Until Page Contains Element    id=create-account_form
-    ...                                          timeout=15s
+    ...                                          timeout=20s
 
     ${email}=                                    faker.Email
     selenium.Input Text                          id=email_create
@@ -18,7 +18,7 @@ I want to register on the site
     selenium.Click Element                       id=SubmitCreate
 
     selenium.Wait Until Page Contains Element    id=account-creation_form
-    ...                                          timeout=15s
+    ...                                          timeout=20s
 
 I fill the required fields
     selenium.Click Element                       id=id_gender1
@@ -40,6 +40,7 @@ I fill the required fields
     ...                                          ${birth_day}
     ...                                          mode=left
     ...                                          characters=0
+
     selenium.Select From List By Value           id=days
     ...                                          ${birth_day_nospace}
 
@@ -48,6 +49,7 @@ I fill the required fields
     ...                                          ${birth_month}
     ...                                          mode=left
     ...                                          characters=0
+
     selenium.Select From List By Value           id=months
     ...                                          ${birth_month_nospace}
 
@@ -55,6 +57,7 @@ I fill the required fields
     ${birth_year_nospace}=                       string.Strip String
     ...                                          ${birth_year}
     ...                                          mode=left
+
     selenium.Select From List By Value           id=years
     ...                                          ${birth_year_nospace}
 
@@ -90,5 +93,3 @@ I fill the required fields
     selenium.Click Button                        id=submitAccount
 
     I should see the account management page
-
-    selenium.Capture Page Screenshot             created_account01.png

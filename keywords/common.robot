@@ -1,13 +1,13 @@
 *** Settings ***
 
-Documentation                                          Common keywords from the test.
+Documentation    Common keywords from the test.
 
-Resource                                               libraries.robot
+Resource         libraries.robot
 
 *** Variables ***
 
-${URL}                                                 http://automationpractice.com/index.php
-${BROWSER}                                             firefox
+${URL}           http://automationpractice.com/index.php
+${BROWSER}       firefox
 
 *** Keywords ***
 
@@ -49,9 +49,12 @@ Scroll to element
 I should see the account management page
     [Documentation]                                    Validate the inital account management page.
     selenium.Wait Until Page Contains Element          id=center_column
-    ...                                                timeout=15s
+    ...                                                timeout=20s
 
     selenium.Element Text Should Be                    css=h1[class='page-heading']
     ...                                                MY ACCOUNT
 
-    Selenium.Element Should Be Visible                 css=ul[class='myaccount-link-list']
+    selenium.Element Should Be Visible                 css=ul[class='myaccount-link-list']
+
+    selenium.Capture Page Screenshot
+

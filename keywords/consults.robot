@@ -14,9 +14,10 @@ I search for the product "${product}"
 
 I select the "WOMEN" category in the main menu categories
     selenium.Mouse Over                          css=a[title='Women']
+    
 
 I select the sub-category "${product}"
-    selenium.Wait Until Element is Visible       css=#block_top_menu> ul > li:nth-child(1) > ul
+    selenium.Wait Until Element is Visible       css=#block_top_menu > ul > li:nth-child(1) > ul
     ...                                          timeout=20s
 
     selenium.Click Element                       link=${product}

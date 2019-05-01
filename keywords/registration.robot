@@ -6,90 +6,90 @@ Resource    libraries.robot
 *** Keywords ***
 
 I want to register on the site
-    selenium.Click Element                       link=Sign in
+    seleniumLib.Click Element                       link=Sign in
 
-    selenium.Wait Until Page Contains Element    id=create-account_form
-    ...                                          timeout=20s
+    seleniumLib.Wait Until Page Contains Element    id=create-account_form
+    ...                                             timeout=20s
 
-    ${email}=                                    faker.Email
-    selenium.Input Text                          id=email_create
-    ...                                          ${email}
+    ${email}=                                       faker.Email
+    seleniumLib.Input Text                          id=email_create
+    ...                                             ${email}
 
-    selenium.Click Element                       id=SubmitCreate
+    seleniumLib.Click Element                       id=SubmitCreate
 
-    selenium.Wait Until Page Contains Element    id=account-creation_form
-    ...                                          timeout=20s
+    seleniumLib.Wait Until Page Contains Element    id=account-creation_form
+    ...                                             timeout=20s
 
 I fill the required fields
-    selenium.Click Element                       id=id_gender1
+    seleniumLib.Click Element                       id=id_gender1
 
-    ${first_name}=                               faker.First Name
-    selenium.Input Text                          id=customer_firstname
-    ...                                          ${first_name}
+    ${first_name}=                                  faker.First Name
+    seleniumLib.Input Text                          id=customer_firstname
+    ...                                             ${first_name}
 
-    ${last_name}=                                faker.Last Name
-    selenium.Input Text                          id=customer_lastname
-    ...                                          ${last_name}
+    ${last_name}=                                   faker.Last Name
+    seleniumLib.Input Text                          id=customer_lastname
+    ...                                             ${last_name}
 
-    ${password}=                                 faker.Password
-    selenium.Input Password                      id=passwd
-    ...                                          ${password}
+    ${password}=                                    faker.Password
+    seleniumLib.Input Password                      id=passwd
+    ...                                             ${password}
 
-    ${birth_day}=                                faker.Day Of Month
-    ${birth_day_nospace}=                        string.Strip String
-    ...                                          ${birth_day}
-    ...                                          mode=left
-    ...                                          characters=0
+    ${birth_day}=                                   faker.Day Of Month
+    ${birth_day_nospace}=                           string.Strip String
+    ...                                             ${birth_day}
+    ...                                             mode=left
+    ...                                             characters=0
 
-    selenium.Select From List By Value           id=days
-    ...                                          ${birth_day_nospace}
+    seleniumLib.Select From List By Value           id=days
+    ...                                             ${birth_day_nospace}
 
-    ${birth_month}=                              faker.Month
-    ${birth_month_nospace}=                      string.Strip String
-    ...                                          ${birth_month}
-    ...                                          mode=left
-    ...                                          characters=0
+    ${birth_month}=                                 faker.Month
+    ${birth_month_nospace}=                         string.Strip String
+    ...                                             ${birth_month}
+    ...                                             mode=left
+    ...                                             characters=0
 
-    selenium.Select From List By Value           id=months
-    ...                                          ${birth_month_nospace}
+    seleniumLib.Select From List By Value           id=months
+    ...                                             ${birth_month_nospace}
 
-    ${birth_year}=                               faker.Year
-    ${birth_year_nospace}=                       string.Strip String
-    ...                                          ${birth_year}
-    ...                                          mode=left
+    ${birth_year}=                                  faker.Year
+    ${birth_year_nospace}=                          string.Strip String
+    ...                                             ${birth_year}
+    ...                                             mode=left
 
-    selenium.Select From List By Value           id=years
-    ...                                          ${birth_year_nospace}
+    seleniumLib.Select From List By Value           id=years
+    ...                                             ${birth_year_nospace}
 
-    ${address}=                                  faker.Street Address
-    selenium.Input Text                          id=address1
-    ...                                          ${address}
+    ${address}=                                     faker.Street Address
+    seleniumLib.Input Text                          id=address1
+    ...                                             ${address}
 
-    ${city}=                                     faker.City
-    selenium.Input Text                          id=city
-    ...                                          ${city}
+    ${city}=                                        faker.City
+    seleniumLib.Input Text                          id=city
+    ...                                             ${city}
 
-    ${state}=                                    faker.State
-    selenium.Select From List By Label           id=id_state
-    ...                                          ${state}
+    ${state}=                                       faker.State
+    seleniumLib.Select From List By Label           id=id_state
+    ...                                             ${state}
 
-    selenium.Input Text                          id=postcode
-    ...                                          00000
+    seleniumLib.Input Text                          id=postcode
+    ...                                             00000
 
-    ${phone}=                                    faker.Random Number
-    ...                                          digits=8
-    selenium.Input Text                          id=phone
-    ...                                          ${phone}
+    ${phone}=                                       faker.Random Number
+    ...                                             digits=8
+    seleniumLib.Input Text                          id=phone
+    ...                                             ${phone}
 
-    ${phone_2}=                                  faker.Random Number
-    ...                                          digits=8
-    selenium.Input Text                          id=phone_mobile
-    ...                                          ${phone_2}
+    ${phone_2}=                                     faker.Random Number
+    ...                                             digits=8
+    seleniumLib.Input Text                          id=phone_mobile
+    ...                                             ${phone_2}
 
-    ${address_2}=                                faker.Street Address
-    selenium.Input Text                          id=alias
-    ...                                          ${address_2}
+    ${address_2}=                                   faker.Street Address
+    seleniumLib.Input Text                          id=alias
+    ...                                             ${address_2}
 
-    selenium.Click Button                        id=submitAccount
+    seleniumLib.Click Button                        id=submitAccount
 
     I should see the account management page

@@ -11,20 +11,20 @@ I login with valid credentials
 
     I am a non-registered user on the home page
 
-    selenium.Click Element                         link=Sign in
+    seleniumLib.Click Element                      link=Sign in
 
-    selenium.Wait Until Element Is Visible         css=div.row #center_column
+    seleniumLib.Wait Until Element Is Visible      css=div.row #center_column
     ...                                            timeout=20s
 
-    selenium.Input Text                            id=email
+    seleniumLib.Input Text                         id=email
     ...                                            ${username}
 
-    selenium.Input Password                        id=passwd
+    seleniumLib.Input Password                     id=passwd
     ...                                            ${password}
 
-    selenium.Capture Page Screenshot
+    seleniumLib.Capture Page Screenshot
 
-    selenium.Click Element                         id=SubmitLogin
+    seleniumLib.Click Element                      id=SubmitLogin
 
 I login with invalid credentials
     [Arguments]                                    ${username}
@@ -33,19 +33,19 @@ I login with invalid credentials
 
     I am a non-registered user on the home page
 
-    selenium.Click Element                         link=Sign in
+    seleniumLib.Click Element                      link=Sign in
 
-    selenium.Input Text                            id=email
+    seleniumLib.Input Text                         id=email
     ...                                            ${username}
 
-    selenium.Input Password                        id=passwd
+    seleniumLib.Input Password                     id=passwd
     ...                                            ${password}
 
-    selenium.Click Element                         id=SubmitLogin
+    seleniumLib.Click Element                      id=SubmitLogin
 
-    selenium.Wait Until Element Is Visible         xpath=//*[@id="center_column"]/div[1]
+    seleniumLib.Wait Until Element Is Visible      xpath=//*[@id="center_column"]/div[1]
     ...                                            timeout=20s
 
-    selenium.Page Should Contain                   ${error_msg}
+    seleniumLib.Page Should Contain                ${error_msg}
 
-    selenium.Capture Page Screenshot
+    seleniumLib.Capture Page Screenshot

@@ -12,18 +12,18 @@ ${BROWSER}       firefox
 *** Keywords ***
 
 Open navigator
-    selenium.Open Browser                              about:blank
-    ...                                                ${BROWSER}
+    seleniumLib.Open Browser                              about:blank
+    ...                                                   ${BROWSER}
 
-    selenium.Maximize Browser Window
+    seleniumLib.Maximize Browser Window
 
 Close navigator
-    selenium.Close Browser
+    seleniumLib.Close Browser
 
 I am a non-registered user on the home page
-    selenium.Go To                                     ${URL}
+    seleniumLib.Go To                                     ${URL}
 
-    selenium.Title Should Be                           My Store
+    seleniumLib.Title Should Be                           My Store
 
 I have at least one product in my cart
     [Documentation]                                    Calls the steps for ensure
@@ -40,21 +40,21 @@ I have at least one product in my cart
 Scroll to element
     [Documentation]                                    Perform the scroll action in the page.
     [Arguments]                                        ${locator}
-    ${element_position_y}                              selenium.Get Horizontal Position
+    ${element_position_y}                              seleniumLib.Get Horizontal Position
     ...                                                ${locator}
 
-    selenium.Execute Javascript                        window.scrollTo(0,${element_position_y})
+    seleniumLib.Execute Javascript                        window.scrollTo(0,${element_position_y})
 
 
 I should see the account management page
     [Documentation]                                    Validate the inital account management page.
-    selenium.Wait Until Page Contains Element          id=center_column
+    seleniumLib.Wait Until Page Contains Element          id=center_column
     ...                                                timeout=20s
 
-    selenium.Element Text Should Be                    css=h1[class='page-heading']
+    seleniumLib.Element Text Should Be                    css=h1[class='page-heading']
     ...                                                MY ACCOUNT
 
-    selenium.Element Should Be Visible                 css=ul[class='myaccount-link-list']
+    seleniumLib.Element Should Be Visible                 css=ul[class='myaccount-link-list']
 
-    selenium.Capture Page Screenshot
+    seleniumLib.Capture Page Screenshot
 

@@ -1,78 +1,62 @@
-# Automated tests for website with Robot Framework
+# Testes automatizados para uma aplicação web com Robot Framework
 
-- Tests applied for sample ecommerce website: http://automationpractice.com/index.php.
-- Were tested basic flows such as: login, registering new account, consult of products and adding products to the cart.
+- Testes aplicados em um exemplo de website de e-commerce: http://automationpractice.com/index.php
+- Foram testados cenários básicos como: login, registro de nova conta, consulta de produtos e adição de produtos no carrinho.
 
-## 1. Files and directories structure
-The tests are structured in files and directories as follows:
-- **requirements.txt**: contains all python required libraries.
-- **test-suites**: contains the <i>.robot</i> files with test suites (scenarios or test cases).
-- **keywords**: contains <i>.robot</i> files with user keywords implementation.
-- **doc**: contains additional documentation about relevant user keywords.</br>
+## 1. Estrutura de arquivos e diretórios
+Os testes estão estruturados nos seguintes diretórios:
+- **requirements.txt**: arquivo que contém as chamadas para instalação das libraries do robot que são necessárias para executar os testes.
+- **test-suites**: diretório que contém arquivos .robot com as suítes de testes (cenários ou casos de testes).
+- **keywords**: diretório que contém arquivos <i>.robot</i> com a implementação das palavras-chaves (keywords).</br>
 
-## 2. Pre-conditions
-- This project cloned
-- Python 2.7.x
-- Gheckodriver for Firefox browse (see install instructions section)
-- (Optional) Chromedriver for Chrome browse (see install instructions section)
-- An ASCII editor of your preference to edit the files (i.e. VSCode, Atom, RIDE, etc)</br>
-- Operating system based on UNIX
+## 2.Pré condições para os testes
+- Clonar esse projeto
+- Python 2.7.x ou superior
+- Baixar os webDrivers dos navegadores Firefox ou Chrome
+- Usar um editor ASCII de sua preferência (VSCode, Atom, RIDE, etc)</br>
 
-## 3. Environment setup
+## 3. Preparando ambiente
 
-### Installing Python required libraries
+### Instalando libraries Python necessárias
 
-Install all required Python libraries typing on terminal command:
+Instale todas a libraries Python necessárias, digitando no terminal o comando:
 
 ```sh
 Linux / Mac
 $ pip install -r requirements.txt --user
 ```
 
-### Installing browser drivers
+### Baixando webDrivers para os navegadores
 
-> Download Firefox driver at https://github.com/mozilla/geckodriver/releases to run test against Firefox
+> Baixe o driver do Firefox em: https://github.com/mozilla/geckodriver/releases 
 
-> Download Chrome driver at http://chromedriver.chromium.org/downloads to run test against Chrome
+> Baixe o driver do Chrome em: http://chromedriver.chromium.org/downloads 
 
-After download the driver(s) to desired directory, i.e.: $HOME/browse-drivers/<drive-browse-dir>/, setup your $PATH variable to recognize the drivers location by editing the properly file that the used terminal command will reads and executes commands from. Or, type the following command on terminal:
+Deve ser baixado o driver mais atualizado, de acordo com a versão do navegador. </br>
+Após baixar os arquivos no diretório desejado, é preciso configurar o caminho deste diretório na variável $PATH do sistema. Essa configuração varia de acordo com o sistema operacional.
 
-```sh
-$ export GECKODRIVER_HOME=$HOME/browse-drivers/geckodriver
-$ export $PATH=$PATH:$GECKODRIVER_HOME
+## 4. Executando os testes
+> Os comandos abaixo devem ser executados no terminal, no diretório raiz do projeto.
 
-$ export CHROMEDRIVER_HOME=$HOME/browse-drivers/chromedriver
-$ export $PATH=$PATH:$CHROMEDRIVER_HOME
-```
-
-## 4. Running acceptance tests
-The above commands should be execute on terminal command at the root project directory.
-
-Runnig all tests:
+Executando todos os testes:
 
 ```sh
-$ robot -d output/all test-suites/
+$ python -m robot -d output/all test-suites/
 ```
 
-Running only basic scenarios:
+Executando somente os cenários básicos:
 ```sh
-$ robot -d output/basic-scenarios -i basic test-suites/
+$ python -m robot -d output/basic-scenarios -i basic test-suites/
 ```
 
-Running tests on Chrome browser:
+## 5. Gerando documentação adicional
 
-```sh
-$ robot -d output/all -v BROWSER:chrome test-suites/
-```
-
-## 5. Generating additional documentation
-
-Generating documentation for existing test cases:
+Gerando documentação para os casos de testes existentes:
 
 ```sh
 $ python -m robot.testdoc test-suites/ doc/test-suites.html
 ```
-Generating documentation for user keywords (i.e.: common.robot):
+Gerando docuentação para as palavras-chaves do usuário (common.robot):
 
 ```sh
 $ python -m robot.libdoc keywords/common.robot doc/common.html
